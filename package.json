@@ -4,7 +4,13 @@
   "description": "Test Case BE",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app/server.js",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
+    "lint:check": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "postinstall": "npx prisma generate"
   },
   "repository": {
     "type": "git",
@@ -17,7 +23,13 @@
   },
   "homepage": "https://github.com/zainalsaputra/submission-spbe-zainalsaputra#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "@prisma/client": "^6.7.0",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "http-errors": "^2.0.0",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.26.0",
