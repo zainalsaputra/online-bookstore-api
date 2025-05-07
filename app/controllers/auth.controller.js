@@ -35,12 +35,11 @@ class AuthControllers {
         return next(createError(400, "Customer not registered"));
       }
       res.status(200).json({
-       token : customer,
+        token: customer,
       });
     } catch (error) {
       next(error);
     }
   };
-
 }
 module.exports = AuthControllers;

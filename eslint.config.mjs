@@ -12,7 +12,7 @@ export default defineConfig([
   { files: ["**/*.{js,mjs,cjs}"], languageOptions: { globals: globals.node } },
   {
     rules: {
-      "no-unused-vars": "warn",
+      "no-unused-vars": "off",
       "no-undef": "warn",
     },
   },

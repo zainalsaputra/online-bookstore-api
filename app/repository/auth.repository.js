@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 const prisma = require("../config/prismaClient.js");
 
 const addedCustomer = async (body, password_) => {
@@ -21,6 +20,5 @@ const addedCustomer = async (body, password_) => {
   });
   return addUser;
 };
-
 
 module.exports = { addedCustomer };

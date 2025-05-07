@@ -10,7 +10,17 @@
     "format:write": "prettier --write .",
     "lint:check": "eslint .",
     "lint:fix": "eslint --fix .",
-    "postinstall": "npx prisma generate"
+    "migrate": "npx prisma migrate dev --name init",
+    "migrate:deploy": "npx prisma migrate deploy",
+    "migrate:reset": "npx prisma migrate reset",
+    "prisma:generate": "npx prisma generate",
+    "prisma:format": "npx prisma format",
+    "prisma:db:push": "npx prisma db push",
+    "prisma:db:seed": "npx prisma db seed",
+    "prisma:studio": "npx prisma studio"
+  },
+  "prisma": {
+    "seed": "node app/seeders/index.js"
   },
   "repository": {
     "type": "git",
