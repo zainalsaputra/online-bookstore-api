@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const createError = require("http-errors");
 const jwt = require("jsonwebtoken");
 
-const prisma = require("../config/prismaClient");
+const prisma = require("../config/prisma.client.js");
 const { addedCustomer } = require("../repository/auth.repository.js");
 
 class AuthServices {
