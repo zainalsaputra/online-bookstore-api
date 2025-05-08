@@ -17,7 +17,10 @@ class CartController {
 
   static async addedCart(req, res, next) {
     try {
-      const { body } = req;
+      const body = {
+        customer_id: req.user.id,
+        ...req.body,
+      };
       const { error } = cartValidation.validate(body);
       if (error) {
         return next(createError(400, error.details[0].message));
@@ -26,14 +29,7 @@ class CartController {
       if (!cart) {
         return next(createError(404, "Failed to add cart"));
       }
-      const data = {
-        id: cart.cart_items[0].id,
-        cart_id: cart.id,
-        book_product_id: cart.cart_items[0].books_product_id,
-        quantity: cart.cart_items[0].quantity,
-        created_at: cart.created_at,
-      };
-      res.status(201).json(data);
+      res.status(201).json(cart);
     } catch (error) {
       next(error);
     }

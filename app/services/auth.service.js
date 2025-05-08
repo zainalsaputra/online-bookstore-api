@@ -16,7 +16,7 @@ class AuthServices {
     delete customer.password;
     const token = jwt.sign(
       {
-        id: customer._id,
+        id: customer.id,
         name: customer.name,
         email: customer.email,
         address: customer.address,
@@ -48,7 +48,7 @@ class AuthServices {
     delete customer.password;
     const token = jwt.sign(
       {
-        id: customer._id,
+        id: customer.id,
         name: customer.name,
         email: customer.email,
         address: customer.address,
