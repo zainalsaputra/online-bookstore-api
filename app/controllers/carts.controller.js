@@ -26,7 +26,14 @@ class CartController {
       if (!cart) {
         return next(createError(404, "Failed to add cart"));
       }
-      res.status(201).json(cart);
+      const data = {
+        id: cart.cart_items[0].id,
+        cart_id: cart.id,
+        book_product_id: cart.cart_items[0].books_product_id,
+        quantity: cart.cart_items[0].quantity,
+        created_at: cart.created_at,
+      };
+      res.status(201).json(data);
     } catch (error) {
       next(error);
     }
