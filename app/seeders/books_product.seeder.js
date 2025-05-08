@@ -1,10 +1,4 @@
 module.exports = async (prisma) => {
-  // const books = await prisma.book.findMany();
-  // console.log(
-  //   "Books available:",
-  //   books.map((b) => b.id),
-  // );
-
   await prisma.booksProduct.createMany({
     data: [
       {

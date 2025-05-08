@@ -1,7 +1,7 @@
 const prisma = require("../config/prisma.client.js");
 
 const findAllCarts = async () => {
-  const getCarts = await prisma.cart.findMany({
+  const getCarts = await prisma.cart.findFirst({
     select: {
       id: true,
       customer_id: true,

@@ -6,17 +6,24 @@ const authRoutes = require("./auth.route.js");
 const booksRoutes = require("./books.route.js");
 const cartsRoutes = require("./carts.route.js");
 const invoiceRoutes = require("./invoice.route.js");
-const checkoutRoutes = require("./checkout.route.js");  
+const checkoutRoutes = require("./checkout.route.js");
 
 router.use("/auth", authRoutes);
 
-router.use("/books", booksRoutes);
+router.use("/books", authMiddleware, booksRoutes);
 
 router.use("/cart", authMiddleware, cartsRoutes);
 
 router.use("/invoices", authMiddleware, invoiceRoutes);
 
-router.use("/checkout",authMiddleware, checkoutRoutes);
+router.use("/checkout", authMiddleware, checkoutRoutes);
+
+router.get('/', (req, res) => {
+  res.status(200).json({
+    status: "success",
+    message: "Welcome to Online Bookstore API"
+  });
+});
 
 router.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
