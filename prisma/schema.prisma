@@ -14,10 +14,93 @@ datasource db {
 }
 
 model Customer {
-  id       Int    @id @default(autoincrement())
-  name     String
-  email    String @unique
-  password String
-  address  String
-  phone    String
+  id        String   @id @default(uuid())
+  name      String
+  password  String
+  email     String   @unique
+  address   String
+  phone     String
+  cart      Cart[]
+  invoice   Invoice[]
+}
+
+model Cart {
+  id          String        @id @default(uuid())
+  customer    Customer      @relation(fields: [customer_id], references: [id])
+  customer_id String
+  created_at  DateTime      @default(now())
+  cart_items  CartItem[]
+  invoice     Invoice[]
+}
+
+model CartItem {
+  id                String       @id @default(uuid())
+  cart              Cart         @relation(fields: [cart_id], references: [id])
+  cart_id           String
+  books_product     BooksProduct @relation(fields: [books_product_id], references: [id])
+  books_product_id  String
+  quantity          Int
+  created_at        DateTime     @default(now())
+}
+
+model Invoice {
+  id           String      @id @default(uuid())
+  total_amount Decimal
+  issued_at    DateTime    @default(now())
+  status       String
+  customer     Customer    @relation(fields: [customer_id], references: [id])
+  customer_id  String
+  cart         Cart        @relation(fields: [cart_id], references: [id])
+  cart_id      String      
+  invoice_items InvoiceItem[]
+}
+
+model InvoiceItem {
+  id                String       @id @default(uuid())
+  invoice           Invoice      @relation(fields: [invoice_id], references: [id])
+  invoice_id        String
+  books_product     BooksProduct @relation(fields: [books_product_id], references: [id])
+  books_product_id  String
+  quantity          Int
+  price             Decimal
+}
+
+model BooksProduct {
+  id            String  @id @default(uuid())
+  book          Book    @relation(fields: [book_id], references: [id])
+  book_id       String
+  price         Decimal
+  stock         Int
+  format        String
+  warehouse     Warehouse @relation(fields: [warehouse_id], references: [id])
+  warehouse_id  String
+  cart_items    CartItem[]
+  invoice_items InvoiceItem[]
+}
+
+model Book {
+  id                String   @id @default(uuid())
+  title             String
+  isbn              String   @unique
+  publication_year  Int
+  genre             String
+  author            Author   @relation(fields: [author_id], references: [id])
+  author_id         String
+  books_products    BooksProduct[]
+}
+
+model Author {
+  id         String @id @default(uuid())
+  name       String
+  bio        String
+  birthdate  DateTime
+  books      Book[]
+}
+
+model Warehouse {
+  id        String  @id @default(uuid())
+  name      String
+  location  String
+  capacity  Int
+  books_products BooksProduct[]
 }

@@ -1,4 +1,4 @@
-const prisma = require("../config/prismaClient.js");
+const prisma = require("../config/prisma.client.js");
 
 const addedCustomer = async (body, password_) => {
   const existingUser = await prisma.customer.findUnique({
