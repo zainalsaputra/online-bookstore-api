@@ -1,5 +1,5 @@
 const createError = require("http-errors");
-const { CartValidation } = require("../validations/carts.validation.js");
+const { cartValidation } = require("../validations/carts.validation.js");
 const CartService = require("../services/carts.service.js");
 
 class CartController {
@@ -18,7 +18,7 @@ class CartController {
   static async addedCart(req, res, next) {
     try {
       const { body } = req;
-      const { error } = CartValidation.validate(body);
+      const { error } = cartValidation.validate(body);
       if (error) {
         return next(createError(400, error.details[0].message));
       }
