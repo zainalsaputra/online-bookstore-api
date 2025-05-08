@@ -4,7 +4,7 @@ const createError = require("http-errors");
 const jwt = require("jsonwebtoken");
 
 const prisma = require("../config/prisma.client.js");
-const { addedCustomer } = require("../repository/auth.repository.js");
+const { addedCustomer } = require("../repositories/auth.repository.js");
 
 class AuthServices {
   static async register(body) {

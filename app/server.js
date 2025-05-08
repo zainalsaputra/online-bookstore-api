@@ -22,6 +22,7 @@ app.listen(PORT, () => {
 
 const prisma = require("./config/prisma.client.js");
 
-prisma.$connect()
-.then(() => console.log('Database connected successfully!'))
-.catch((err) => console.error('Error connecting to database:', err));
+prisma
+  .$connect()
+  .then(() => console.log("Database connected successfully!"))
+  .catch((err) => console.error("Error connecting to database:", err));

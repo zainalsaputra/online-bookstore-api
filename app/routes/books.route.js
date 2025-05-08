@@ -7,6 +7,4 @@ router.get("/", BooksControllers.getAllBooks);
 
 router.get("/:id", BooksControllers.getBooksDetail);
 
-
-
 module.exports = router;
