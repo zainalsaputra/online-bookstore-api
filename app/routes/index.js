@@ -5,12 +5,15 @@ const authenticate = require("../middlewares/auth.middleware");
 const authRoutes = require("./auth.route.js");
 const booksRoutes = require("./books.route.js");
 const cartsRoutes = require("./carts.route.js");
+const invoiceRoutes = require("./invoice.route.js");
 
 router.use("/auth", authRoutes);
 
 router.use("/books", booksRoutes);
 
 router.use("/cart", authenticate, cartsRoutes);
+
+router.use("/invoices", authenticate, invoiceRoutes);
 
 router.use((req, res) => {
   res.status(404).json({ message: "Route not found" });
