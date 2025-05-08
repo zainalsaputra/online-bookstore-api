@@ -41,8 +41,11 @@ const createdCart = async (body) => {
         },
       },
     },
+    include: {
+      cart_items: true,
+    }
   });
-  return createCart;
+  return createCart.cart_items[0];
 };
 
 module.exports = {
