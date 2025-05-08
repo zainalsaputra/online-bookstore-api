@@ -4,10 +4,10 @@ const { v4: uuidv4 } = require("uuid");
 class CheckoutService {
   static async processCheckout(customerId) {
     const cart = await CheckoutRepository.findLatestCart(customerId);
-    if (!cart) throw new Error("Cart tidak ditemukan");
+    if (!cart) throw new Error("Cart not found");
 
     const items = await CheckoutRepository.findCartItems(cart.id);
-    if (!items.length) throw new Error("Cart kosong");
+    if (!items.length) throw new Error("Cart is empty");
 
     const total = items.reduce((sum, item) => {
       return sum + item.books_product.price * item.quantity;
