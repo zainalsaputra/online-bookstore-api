@@ -4,10 +4,18 @@ const bcrypt = require("bcrypt");
 const prisma = new PrismaClient();
 
 const seedUsers = require("./user.seeder");
+const seedAuthors = require("./author.seeder");
+const seedBooks = require("./book.seeder");
+const seedWarehouses = require("./warehouse.seeder");
+const seedBooksProducts = require("./books_product.seeder");
 
 const main = async () => {
   const hashedPassword = await bcrypt.hash("password", 10);
   await seedUsers(prisma, hashedPassword);
+  await seedAuthors(prisma);
+  await seedBooks(prisma);
+  await seedWarehouses(prisma);
+  await seedBooksProducts(prisma);
 };
 
 main()
