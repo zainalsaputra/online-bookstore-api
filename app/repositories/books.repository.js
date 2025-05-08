@@ -41,6 +41,7 @@ const findBooksDetailById = async (id) => {
           id: true,
           format: true,
           price: true,
+          stock: true,
           warehouse: {
             select: {
               id: true,

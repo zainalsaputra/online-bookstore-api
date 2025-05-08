@@ -25,7 +25,27 @@ class BooksService {
       if (!book) {
         throw new Error("Book not found");
       }
-      return book;
+      return {
+        id: book.id,
+        title: book.title,
+        isbn: book.isbn,
+        publication_year: book.publication_year,
+        genre: book.genre,
+        author: {
+          id: book.author.id,
+          name: book.author.name,
+        },
+        products: book.books_products.map((product) => ({
+          id: product.id,
+          format: product.format,
+          price: product.price,
+          stock: product.stock,
+          warehouse: {
+            id: product.warehouse.id,
+            name: product.warehouse.name,
+          },
+        })),
+      };
     } catch (error) {
       throw new Error(error.message);
     }
