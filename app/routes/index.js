@@ -18,10 +18,10 @@ router.use("/invoices", authMiddleware, invoiceRoutes);
 
 router.use("/checkout", authMiddleware, checkoutRoutes);
 
-router.get('/', (req, res) => {
+router.get("/", (req, res) => {
   res.status(200).json({
     status: "success",
-    message: "Welcome to Online Bookstore API"
+    message: "Welcome to Online Bookstore API",
   });
 });
 

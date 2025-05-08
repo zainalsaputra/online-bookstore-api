@@ -1,12 +1,9 @@
-const {
-  findAllCarts,
-  createdCart,
-} = require("../repositories/carts.repository");
+const { findCart, createdCart } = require("../repositories/carts.repository");
 
 class BooksService {
-  static async getAllCarts() {
+  static async getCarts() {
     try {
-      const carts = await findAllCarts();
+      const carts = await findCart();
       if (!carts) {
         throw new Error("No carts found");
       }
@@ -25,8 +22,8 @@ class BooksService {
             },
             format: item.books_product.format,
             price: item.books_product.price,
-          }
-        }))
+          },
+        })),
       };
     } catch (error) {
       throw new Error(error.message);

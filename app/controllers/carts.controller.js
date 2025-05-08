@@ -3,9 +3,9 @@ const { cartValidation } = require("../validations/carts.validation.js");
 const CartService = require("../services/carts.service.js");
 
 class CartController {
-  static async getAllCarts(req, res, next) {
+  static async getCarts(req, res, next) {
     try {
-      const carts = await CartService.getAllCarts();
+      const carts = await CartService.getCarts();
       if (!carts) {
         return next(createError(404, "No carts found"));
       }

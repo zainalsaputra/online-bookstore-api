@@ -1,6 +1,6 @@
 const prisma = require("../config/prisma.client.js");
 
-const findAllCarts = async () => {
+const findCart = async () => {
   const getCarts = await prisma.cart.findFirst({
     select: {
       id: true,
@@ -43,12 +43,12 @@ const createdCart = async (body) => {
     },
     include: {
       cart_items: true,
-    }
+    },
   });
   return createCart.cart_items[0];
 };
 
 module.exports = {
-  findAllCarts,
+  findCart,
   createdCart,
 };
