@@ -1,0 +1,94 @@
+module.exports = async (prisma) => {
+  // const books = await prisma.book.findMany();
+  // console.log(
+  //   "Books available:",
+  //   books.map((b) => b.id),
+  // );
+
+  await prisma.booksProduct.createMany({
+    data: [
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69581",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69590",
+        price: 350000,
+        stock: 20,
+        format: "hardcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69581",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69582",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69581",
+        price: 250000,
+        stock: 30,
+        format: "softcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69582",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69583",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69582",
+        price: 400000,
+        stock: 10,
+        format: "hardcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69583",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69584",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69583",
+        price: 270000,
+        stock: 15,
+        format: "softcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69581",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69585",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69584",
+        price: 490000,
+        stock: 5,
+        format: "hardcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69582",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69586",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69585",
+        price: 300000,
+        stock: 12,
+        format: "softcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69583",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69587",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69586",
+        price: 430000,
+        stock: 18,
+        format: "hardcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69582",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69588",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69587",
+        price: 850000,
+        stock: 6,
+        format: "collector",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69582",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p69589",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69588",
+        price: 320000,
+        stock: 9,
+        format: "softcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69581",
+      },
+      {
+        id: "567a5672-d268-432f-9b50-0ab818p695810",
+        book_id: "567a5672-d268-432f-9b50-0ac818b69589",
+        price: 200000,
+        stock: 25,
+        format: "softcover",
+        warehouse_id: "567a5672-d268-432f-9b50-0ac818w69581",
+      },
+    ],
+    skipDuplicates: true,
+  }),
+    console.log("BooksProduct berhasil ditambahkan");
+};
