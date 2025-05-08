@@ -30,6 +30,22 @@ const findAllCarts = async () => {
   return getCarts;
 };
 
+const createdCart = async (body) => {
+  const createCart = await prisma.cart.create({
+    data: {
+      customer_id: body.customer_id,
+      cart_items: {
+        create: {
+          books_product_id: body.books_product_id,
+          quantity: body.quantity,
+        },
+      },
+    },
+  });
+  return createCart;
+};
+
 module.exports = {
   findAllCarts,
+  createdCart,
 };
