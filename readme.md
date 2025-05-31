@@ -20,7 +20,7 @@ A RESTful backend API for managing an online bookstore system.
 ## Tools & Dependencies
 
 - Prisma ORM
-- AWS (EC2, Route53)
+- AWS (EC2, RDS, VPC, Route53)
 - jsonwebtoken (JWT)
 - bcryptjs
 - joi (schema validation)
@@ -38,7 +38,7 @@ A RESTful backend API for managing an online bookstore system.
 - **DNS**: AWS Route53
 - **SSL**: Certbot (HTTPS via Let's Encrypt)
 - **Process Manager**: PM2
-- **Database**: Neon Tech (PostgreSQL)
+- **Database**: Amazon RDS (PostgreSQL)
 
 ## Authentication & Authorization
 
@@ -53,9 +53,6 @@ A RESTful backend API for managing an online bookstore system.
 
 - **JWT Middleware**  
   Protects private routes from unauthorized access.
-
-- **Security Enhancements**  
-  Secured using Helmet and rate limiting to mitigate attacks.
 
 ## Book Management
 
@@ -93,7 +90,7 @@ A RESTful backend API for managing an online bookstore system.
 ### Prerequisites
 
 - Node.js v20.x.x
-- PostgreSQL (local or Neon cloud)
+- PostgreSQL (local or Amazon RDS)
 - NPM
 
 ### Steps to Setup
