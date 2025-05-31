@@ -13,7 +13,7 @@ A RESTful backend API for managing an online bookstore system.
 - **Database**: PostgreSQL
 - **ORM**: Prisma Client
 
-## Production URL
+## Production URL [Takedown 31/05/2025]
 
 - [https://online-bookstore.zainal-saputra.click](https://online-bookstore.zainal-saputra.click)
 
