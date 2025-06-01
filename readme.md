@@ -97,7 +97,7 @@ A RESTful backend API for managing an online bookstore system.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/online-bookstore-api.git
+git clone https://github.com/zainalsaputra/online-bookstore-api.git
 cd online-bookstore-api
 
 # 2. Install all dependencies
